@@ -2,7 +2,8 @@ class Api::BucketsController < Api::ApiController
   
   def show
     @bucket = Bucket.find(params[:id])
-    render :json => @bucket.to_json(:include => { :tasks => {:only => [:id]}})
+    # render :json => @bucket.to_json(:include => { :tasks => {:only => [:id]}})
+    render :json => @bucket.to_json(:include => :tasks)
   end
 
   def create

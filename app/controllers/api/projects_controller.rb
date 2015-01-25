@@ -6,8 +6,7 @@ class Api::ProjectsController < Api::ApiController
 
   def show
     @project = Project.find(params[:id])
-    # render :json => @project.to_json(:include => { :buckets => {:include => :tasks}})
-    render :json => @project.to_json(:include => { :buckets => {:only => [:id]}})
+    render :json => @project.to_json(:include => { :buckets => {:include => :tasks}})
   end
 
   def new
