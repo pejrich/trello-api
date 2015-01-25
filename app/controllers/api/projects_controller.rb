@@ -1,7 +1,7 @@
 class Api::ProjectsController < Api::ApiController
   def get_id
-    @project_id = Project.where(token: params[:token]).first_or_create.id
-    render :json => @project_id.to_json
+    @project = Project.where(token: params[:token]).first_or_create
+    render :json => @project.to_json(:include => { :buckets => {:include => :tasks}})
   end
 
   def show
