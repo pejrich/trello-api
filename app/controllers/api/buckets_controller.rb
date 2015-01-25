@@ -1,4 +1,4 @@
-class Api::BucketsController < ApplicationController
+class Api::BucketsController < Api::ApiController
   
   def show
     @bucket = Bucket.find(params[:id])

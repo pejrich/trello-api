@@ -1,4 +1,4 @@
-class Api::ProjectsController < ApplicationController
+class Api::ProjectsController < Api::ApiController
   def get_id
     @project_id = Project.where(token: params[:token]).first_or_create.id
     render :json => @project_id.to_json

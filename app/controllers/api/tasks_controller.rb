@@ -1,4 +1,4 @@
-class Api::TasksController < ApplicationController
+class Api::TasksController < Api::ApiController
   respond_to :json
 
   def show
