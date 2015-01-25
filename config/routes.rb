@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root 'static_pages#root'
+  # resources :projects, :defaults => { :format => :json }
+  get '/:token', :to => 'api/projects#get_id'
+  
+  namespace :api, defaults: { format: :json } do
+    resources :projects
+    resources :buckets
+    resources :tasks
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
